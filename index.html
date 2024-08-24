@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 2nd Anniversary !</title>
+    <style>
+        /* Reset and basic styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f8cdda 0%, #1fc8db 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.5s ease;
+        }
+
+        /* Container styles */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Entry screen styles */
+        .entry-screen {
+            display: block;
+        }
+
+        .celebration-screen {
+            display: none;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-top: 20px;
+            color: #555;
+        }
+
+        /* Input and button styles */
+        input[type="text"] {
+            padding: 10px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 2px solid #1fc8db;
+            border-radius: 5px;
+        }
+
+        input[type="text"]::placeholder {
+            color: #999;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #1fc8db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #009fb7;
+        }
+
+        /* Image styles */
+        .anniversary-image {
+            width: 100%;
+            max-width: 300px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        /* Audio styles */
+        audio {
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Entry Screen -->
+        <div class="entry-screen" id="entryScreen">
+            <h1>Happy 2nd Anniversary!</h1>
+            <p>Dear loveable couple please enter your anniversary date below :</p>
+            <input type="text" id="anniversaryDate" placeholder="DDMMYYYY" />
+            <button onclick="checkDate()">click me</button>
+        </div>
+
+        <!-- Celebration Screen -->
+        <div class="celebration-screen" id="celebrationScreen">
+            <h1>Congratulations💕!</h1>
+            <img src="anniver.jpg" alt="Anniversary" class="anniversary-image">
+            <P>BHAIYA & BHABHI FOR COMPLETING TWO YEARS TOGETHER 👨‍👩‍👦</P>
+            <p>Wishing you both a lifetime of love and happiness.</p>
+    
+            <p>Wishing you endless happiness in every way. 💕 Love growing stronger with each passing day💞</p>
+            <p>"আপনারা দু'জনেই সুখী ও সুন্দর সময় কাটান,
+                প্রেমের বাঁধনে জড়ানো থাকুন চিরকাল,
+                শুভ ২য় বিবাহবার্ষিকী 🎉❤️, সুখী জীবন কামনা করি।"</p>
+            
+        </div>
+        </div>
+            <audio id="anniversarySong" autoplay>
+                <source src="anniver.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        function checkDate() {
+            const enteredDate = document.getElementById('anniversaryDate').value;
+            const actualDate = '29082022'; // Replace with the actual anniversary date in YYYYMMDD format
+
+            if (enteredDate === actualDate) {
+                // Transition to Celebration Screen
+                document.getElementById('entryScreen').style.display = 'none';
+                document.getElementById('celebrationScreen').style.display = 'block';
+                document.body.style.background = 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)'; // Change background for celebration
+                
+                // Autoplay the song
+                document.getElementById('anniversarySong').play();
+            } else {
+                alert("Incorrect date! Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
